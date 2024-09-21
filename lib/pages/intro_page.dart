@@ -7,8 +7,10 @@ class IntroPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
        body: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        // crossAxisAlignment: CrossAxisAlignment.center,
          children: [
-          Image.asset('assets/images/nike-logo-49337.png',height: ,),
+          Center(child: Image.asset('assets/images/nike-logo-49337.png',width: MediaQuery.of(context).size.width*0.8,)),
          ],
        ),
     );

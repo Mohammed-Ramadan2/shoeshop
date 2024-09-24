@@ -1,5 +1,7 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:shoe_shop_app/component/shoe_tile.dart';
+import 'package:shoe_shop_app/models/shoe.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -49,6 +51,7 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
+          ShoeTile(shoe: Shoe(name: 'name', price: 'price', imagepass: 'assets/images/Skipper.png', description: 'description'),)
         ],
       ),
     );

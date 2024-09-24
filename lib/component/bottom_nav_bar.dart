@@ -1,5 +1,6 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:shoe_shop_app/component/my_drawer.dart';
 import 'package:shoe_shop_app/pages/cart_page.dart';
 import 'package:shoe_shop_app/pages/home_page.dart';
 
@@ -22,6 +23,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Widget build(BuildContext context) {
     List<Widget> destinations = [
       NavigationDestination(
+
         icon: Icon(
           selectedIndex == 0
               ? FluentIcons.home_16_filled // Filled icon when selected
@@ -40,6 +42,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     ];
     return Scaffold(
       bottomNavigationBar: NavigationBar(
+        backgroundColor: Colors.brown[100],
         selectedIndex: selectedIndex,
         destinations: destinations,
         onDestinationSelected: (value) {
@@ -59,53 +62,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
               icon: Icon(Icons.menu));
         }),
       ),
-      drawer: Drawer(
-        backgroundColor: Colors.grey[600],
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              children: [
-                Image.asset(
-                  'assets/images/zeelogo.png',
-                  height: MediaQuery.of(context).size.height * 0.15,
-                  color: Colors.white,
-                ),
-                ListTile(
-                  leading: Icon(
-                    FluentIcons.home_24_filled,
-                    color: Colors.white,
-                  ),
-                  title: Text(
-                    'H O M E',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                ListTile(
-                  leading: Icon(
-                    FluentIcons.book_exclamation_mark_20_filled,
-                    color: Colors.white,
-                  ),
-                  title:
-                      Text('A B O U T', style: TextStyle(color: Colors.white)),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                ListTile(
-                  leading: Icon(
-                    FluentIcons.sign_out_20_filled,
-                    color: Colors.white,
-                  ),
-                  title: Text('S I G N   O U T',
-                      style: TextStyle(color: Colors.white)),
-                ),
-              ],
-            )
-          ],
-        ),
-      ),
+      drawer: MyDrawer(),
       body: screens[selectedIndex],
     );
   }

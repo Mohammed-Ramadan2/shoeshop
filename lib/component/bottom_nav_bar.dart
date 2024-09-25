@@ -41,6 +41,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       ),
     ];
     return Scaffold(
+
       bottomNavigationBar: NavigationBar(
         backgroundColor: Colors.brown[100],
         selectedIndex: selectedIndex,

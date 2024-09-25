@@ -1,6 +1,7 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:shoe_shop_app/component/shoe_tile.dart';
+import 'package:shoe_shop_app/database/database.dart';
 import 'package:shoe_shop_app/models/shoe.dart';
 
 class HomePage extends StatelessWidget {
@@ -46,12 +47,38 @@ class HomePage extends StatelessWidget {
                 Text(
                   'Hot Picks ️‍🔥',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ) ,
-                Text('see all', style: TextStyle(color: Colors.blue),)
+                ),
+                Text(
+                  'see all',
+                  style: TextStyle(color: Colors.blue),
+                )
               ],
             ),
           ),
-          ShoeTile(shoe: Shoe(name: 'name', price: 'price', imagepass: 'assets/images/Skipper.png', description: 'description'),)
+          // ShoeTile(shoe: Shoe(name: 'name', price: 'price', imagepass: 'assets/images/Skipper.png', description: 'description'),)
+          Expanded(
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+            
+              itemCount: shoelist.length,
+              itemBuilder: (context, index) {
+                return
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ShoeTile(
+                      shoe: shoelist[index]
+                      // Shoe(
+                      //     name: shoelist[index].name,
+                      //     price: shoelist[index].price,
+                      //     imagepass: shoelist[index].imagepass,
+                      //     description: shoelist[index].description)
+                          
+                          
+                          ),
+                );
+              },
+            ),
+          )
         ],
       ),
     );

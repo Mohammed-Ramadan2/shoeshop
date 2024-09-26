@@ -4,12 +4,13 @@ import '../models/shoe.dart';
 
 class ShoeTile extends StatelessWidget {
   Shoe shoe;
-  ShoeTile({super.key, required this.shoe});
+  void Function() onTapFun;
+  ShoeTile({super.key, required this.shoe,required this.onTapFun});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.52,
+      height: MediaQuery.of(context).size.height * 0.5,
       width: MediaQuery.of(context).size.width * 0.6,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
@@ -38,7 +39,7 @@ class ShoeTile extends StatelessWidget {
                     Text(
                       shoe.name,
                       style:
-                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       " \$ ${shoe.price}",
@@ -47,17 +48,20 @@ class ShoeTile extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                height: MediaQuery.of(context).size.height * 0.08,
-                width: MediaQuery.of(context).size.width * 0.12,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        bottomRight: Radius.circular(10)),
-                    color: Colors.black),
-                child: Icon(
-                  Icons.add,
-                  color: Colors.white,
+              GestureDetector(
+                onTap: onTapFun,
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.08,
+                  width: MediaQuery.of(context).size.width * 0.14,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10)),
+                      color: Colors.black),
+                  child: Icon(
+                    Icons.add,
+                    color: Colors.white,
+                  ),
                 ),
               )
             ],
